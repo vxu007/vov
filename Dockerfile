@@ -16,7 +16,7 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/reposi
 ENV OPENVPN=/etc/openvpn
 ENV EASYRSA=/usr/share/easy-rsa \
     EASYRSA_CRL_DAYS=3650 \
-    EASYRSA_PKI=$OPENVPN/$OPENVPN/pki
+    EASYRSA_PKI=$OPENVPN/pki
 
 # Set working directory and create missing directories
 VOLUME ["/etc/openvpn"]
