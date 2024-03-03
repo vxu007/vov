@@ -31,7 +31,7 @@ EXPOSE 443/tcp
 EXPOSE 80/tcp
 
 # Set default command
-CMD ["volt_volt_ovpn_run"]
+CMD ["volt_ovpn_run"]
 
 # Add scripts
 ADD ./bin /usr/local/bin
