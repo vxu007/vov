@@ -8,6 +8,7 @@ LABEL maintainer="VoltSSHX <iyke.earth@gmail.com>"
 
 # Install necessary packages from additional Alpine stage
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repositories && \
+    echo "https://dl-cdn.alpinelinux.org/alpine/v3.19/community/" >> /etc/apk/repositories && \
     apk add --update openvpn iptables bash curl wget easy-rsa openssl && \
     ln -s /usr/share/easy-rsa/easyrsa /usr/local/bin && \
     rm -rf /tmp/* /var/tmp/* /var/cache/apk/* /var/cache/distfiles/*
