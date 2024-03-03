@@ -1,0 +1,21 @@
+name: Docker Image for VoltOVPN on GHCR
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_and_publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Log in to GitHub Container Registry
+        run: echo "${{ secrets.GH_PAT }}" | docker login ghcr.io -u nanavybes --password-stdin
+
+      - name: Build and push the image
+        run: |
+          docker build . -t ghcr.io/vxu007/voltovpn-ghcr:latest
+          docker push ghcr.io/vxu007/voltovpn-ghcr:latest
