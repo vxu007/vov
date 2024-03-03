@@ -1,4 +1,10 @@
 # Build using Alpine base image, installing EasyRSA
+FROM alpine:edge
+RUN apk upgrade --update-cache --available && \
+    apk add openssl && \
+    rm -rf /var/cache/apk/*
+
+
 FROM alpine:latest
 
 # Label
@@ -7,7 +13,7 @@ LABEL maintainer="VoltSSHX <iyke.earth@gmail.com>"
 
 # Install necessary packages from additional Alpine stage
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repositories && \
-    apk add --update openvpn iptables bash curl wget easy-rsa openssl=1.1.1g-r0 && \
+    apk add --update openvpn iptables bash curl wget easy-rsa && \
     ln -s /usr/share/easy-rsa/easyrsa /usr/local/bin && \
     rm -rf /tmp/* /var/tmp/* /var/cache/apk/* /var/cache/distfiles/*
 
