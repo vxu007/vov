@@ -5,7 +5,6 @@ FROM alpine:latest
 LABEL maintainer="VoltSSHX <iyke.earth@gmail.com>"
 
 
-
 # Install necessary packages from additional Alpine stage
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repositories && \
     apk add --update openvpn iptables bash curl wget easy-rsa openssl=1.1.1g-r0 && \
